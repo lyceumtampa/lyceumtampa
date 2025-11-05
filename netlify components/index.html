@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyceum Tampa - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="apply-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Lyceum Tampa</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="apply.html" class="apply-btn">Apply</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Lyceum Tampa</h1>
+            <p class="hero-subtitle">Where young visionaries shape the future</p>
+            <div class="hero-cta">
+                <a href="apply.html" class="cta-btn">Apply Now</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="mission-content">
+                <p class="mission-text">
+                    Welcome to The Lyceum Tampa, an exclusive social networking club designed to empower teenagers and young minds through meaningful connections, inspiration, and personal growth. At The Lyceum, we believe the future belongs to those who dream, innovate, and collaborate.
+                </p>
+                <p class="mission-text">
+                    Our club offers a dynamic environment where young leaders can engage with peers, share ideas, and build lifelong relationships. Whether through thought-provoking discussions, skill-building workshops, or community-driven events, members are encouraged to unlock their potential, expand their horizons, and make an impact.
+                </p>
+                <p class="mission-text">
+                    The Lyceum Tampa isn't just a club — it's a movement. A place where ambition meets opportunity, creativity flourishes, and dreams take flight. Join us and be part of a community shaping the leaders of tomorrow.
+                </p>
+                <div class="mission-signature">
+                    <p class="signature-text">For young visionaries. By young visionaries.</p>
+                    <p class="signature-text">Welcome to The Lyceum Tampa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">What We Offer</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Meaningful Connections</h3>
+                    <p>Build relationships with like-minded peers and mentors who share your passion for growth and innovation.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Skill Development</h3>
+                    <p>Participate in workshops and discussions designed to enhance your leadership, communication, and critical thinking skills.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Community Events</h3>
+                    <p>Join exclusive gatherings, networking events, and community initiatives that make a real impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Lyceum Tampa</h3>
+                </div>
+                <div class="footer-links">
+                    <a href="#hero">Home</a>
+                    <a href="#mission">Mission</a>
+                    <a href="#features">Features</a>
+                    <a href="apply.html">Apply</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Lyceum Tampa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Smooth scroll for anchor links
+    document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.length > 1 && document.querySelector(targetId)) {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html> 

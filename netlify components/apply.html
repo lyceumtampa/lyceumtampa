@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply - The Lyceum Tampa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="apply-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Lyceum Tampa</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="back-btn">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Application Header -->
+    <section class="application-header">
+        <div class="container">
+            <h1 class="application-title">Lyceum Tampa</h1>
+            <p class="application-subtitle">Application Form</p>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="application-form">
+        <div class="container">
+            <div class="form-container">
+                <form action="https://formspree.io/f/mkgbbzkr" method="POST" id="applicationForm" class="application-form-content">
+                    <div class="form-intro">
+                        <p>Please answer the following questions thoughtfully. Your responses will help us understand your perspective, values, and potential contribution to The Lyceum Tampa community.</p>
+                    </div>
+
+                    <div class="question-group">
+                        <label for="question1" class="question-label">1. What is a problem you see in everyday life?</label>
+                        <textarea 
+                            id="question1" 
+                            name="Problem in Everyday Life"
+                            class="answer-box" 
+                            rows="4" 
+                            placeholder="Describe a problem you've observed in your daily life or community..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="question-group">
+                        <label for="question2" class="question-label">2. What is a solution to that problem, be detailed?</label>
+                        <textarea 
+                            id="question2" 
+                            name="Solution to the Problem"
+                            class="answer-box" 
+                            rows="4" 
+                            placeholder="Provide a detailed solution to the problem you identified above..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="question-group">
+                        <label for="question3" class="question-label">3. What is a hobby you enjoy and how does it speak to your character and values?</label>
+                        <textarea 
+                            id="question3" 
+                            name="Hobby and Character Values"
+                            class="answer-box" 
+                            rows="4" 
+                            placeholder="Share a hobby or interest and explain what it reveals about your personality and values..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="question-group">
+                        <label for="question4" class="question-label">4. What field, industry, or idea would you like to have a speaker on?</label>
+                        <textarea 
+                            id="question4" 
+                            name="Desired Speaker Topic"
+                            class="answer-box" 
+                            rows="4" 
+                            placeholder="Tell us about a topic, industry, or concept you'd like to learn more about from an expert speaker..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="submit-btn">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Lyceum Tampa</h3>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#mission">Mission</a>
+                    <a href="apply.html">Apply</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Lyceum Tampa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
