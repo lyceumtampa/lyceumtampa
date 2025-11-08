@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Ticket - The Lyceum Tampa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="purchase-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Lyceum Tampa</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="back-btn">Back to Home</a>
+                <a href="apply.html" class="apply-btn">Apply</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Purchase Header -->
+    <section class="purchase-header">
+        <div class="container">
+            <h1 class="purchase-title">Purchase Your Ticket</h1>
+            <p class="purchase-subtitle">Join The Lyceum Tampa Community</p>
+        </div>
+    </section>
+
+    <!-- Ticket Information -->
+    <section class="ticket-info">
+        <div class="container">
+            <div class="ticket-container">
+                <div class="ticket-details">
+                    <h2 class="ticket-title">Event Ticket</h2>
+                    <div class="ticket-description">
+                        <p>Gain access to exclusive Lyceum Tampa events, networking opportunities, and community gatherings.</p>
+                        <ul class="ticket-features">
+                            <li>✓ Access to all monthly events</li>
+                            <li>✓ Networking opportunities with like-minded individuals</li>
+                            <li>✓ Exclusive workshops and speaker sessions</li>
+                            <li>✓ Community membership benefits</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pricing-section">
+                    <div class="price-card">
+                        <div class="price-amount">
+                            <span class="currency">$</span>
+                            <span class="amount" id="ticketPrice">25</span>
+                        </div>
+                        <p class="price-label">per ticket</p>
+                        
+                        <div class="payment-form">
+                            <div class="quantity-selector">
+                                <label for="quantity">Quantity:</label>
+                                <select id="quantity" name="quantity">
+                                    <option value="1">1 Ticket</option>
+                                    <option value="2">2 Tickets</option>
+                                    <option value="3">3 Tickets</option>
+                                    <option value="4">4 Tickets</option>
+                                    <option value="5">5 Tickets</option>
+                                </select>
+                            </div>
+                            
+                            <div class="total-price">
+                                <p>Total: <span id="totalPrice">$25.00</span></p>
+                            </div>
+
+                            <!-- Display errors -->
+                            <div id="payment-errors" role="alert" class="card-errors"></div>
+
+                            <button type="button" id="checkout-button" class="purchase-button">
+                                <span id="button-text">Purchase Ticket</span>
+                                <span id="button-spinner" class="spinner hidden"></span>
+                            </button>
+                            
+                            <p class="secure-payment-note">
+                                🔒 Secure payment powered by Stripe
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Lyceum Tampa</h3>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#mission">Mission</a>
+                    <a href="purchase.html">Purchase Ticket</a>
+                    <a href="apply.html">Apply</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Lyceum Tampa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const basePrice = 25.00; // Base price per ticket in dollars
+
+        // Handle quantity changes
+        const quantitySelect = document.getElementById('quantity');
+        const totalPriceElement = document.getElementById('totalPrice');
+
+        quantitySelect.addEventListener('change', function() {
+            const quantity = parseInt(this.value);
+            const total = basePrice * quantity;
+            totalPriceElement.textContent = `$${total.toFixed(2)}`;
+        });
+
+        // Handle checkout button click
+        const checkoutButton = document.getElementById('checkout-button');
+        const buttonText = document.getElementById('button-text');
+        const buttonSpinner = document.getElementById('button-spinner');
+        const paymentErrors = document.getElementById('payment-errors');
+
+        checkoutButton.addEventListener('click', async function() {
+            // Clear any previous errors
+            paymentErrors.textContent = '';
+            paymentErrors.classList.remove('visible');
+
+            // Disable the button
+            checkoutButton.disabled = true;
+            buttonText.textContent = 'Loading...';
+            buttonSpinner.classList.remove('hidden');
+
+            const quantity = parseInt(quantitySelect.value);
+
+            try {
+                // Call Netlify function to create checkout session
+                const response = await fetch('/.netlify/functions/create-checkout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        quantity: quantity,
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to create checkout session');
+                }
+
+                // Redirect to Stripe Checkout
+                if (data.url) {
+                    window.location.href = data.url;
+                } else {
+                    throw new Error('No checkout URL returned');
+                }
+
+            } catch (error) {
+                // Show error to user
+                paymentErrors.textContent = error.message || 'An error occurred. Please try again.';
+                paymentErrors.classList.add('visible');
+                
+                // Reset button
+                checkoutButton.disabled = false;
+                buttonText.textContent = 'Purchase Ticket';
+                buttonSpinner.classList.add('hidden');
+                
+                console.error('Checkout error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
+

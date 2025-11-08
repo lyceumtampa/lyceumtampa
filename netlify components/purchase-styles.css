@@ -1,0 +1,432 @@
+/* Purchase Page Specific Styles */
+
+/* Success Page Styles */
+.success-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.success-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    background: linear-gradient(135deg, #4caf50, #66bb6a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #ffffff;
+    font-weight: bold;
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.success-message {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.success-message p {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.success-message p:last-child {
+    margin-bottom: 0;
+}
+
+.success-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.success-actions .purchase-button,
+.success-actions .apply-btn {
+    min-width: 200px;
+}
+
+.secure-payment-note {
+    text-align: center;
+    color: #888888;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Purchase Header */
+.purchase-header {
+    min-height: 50vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 0 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.purchase-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.purchase-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.purchase-subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    font-weight: 300;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Ticket Information Section */
+.ticket-info {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+}
+
+.ticket-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.ticket-details {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.ticket-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.ticket-description p {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.ticket-features {
+    list-style: none;
+    padding: 0;
+}
+
+.ticket-features li {
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.5px;
+}
+
+.ticket-features li:last-child {
+    border-bottom: none;
+}
+
+/* Pricing Section */
+.pricing-section {
+    position: sticky;
+    top: 100px;
+}
+
+.price-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.price-amount {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.currency {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    color: #d4af37;
+    font-weight: 600;
+    vertical-align: top;
+}
+
+.amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.price-label {
+    text-align: center;
+    color: #cccccc;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Payment Form */
+.payment-form {
+    margin-top: 2rem;
+}
+
+.quantity-selector {
+    margin-bottom: 1.5rem;
+}
+
+.quantity-selector label {
+    display: block;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.quantity-selector select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.quantity-selector select:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.quantity-selector select:focus {
+    border-color: rgba(212, 175, 55, 0.5);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.quantity-selector select option {
+    background: #2d2d2d;
+    color: #ffffff;
+}
+
+.total-price {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.total-price p {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.total-price span {
+    color: #d4af37;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Stripe Card Element */
+.card-element {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.card-element:focus-within {
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.card-errors {
+    color: #ff5252;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    min-height: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-errors.visible {
+    opacity: 1;
+}
+
+/* Purchase Button */
+.purchase-button {
+    width: 100%;
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+    color: #1a1a1a;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    margin-top: 1rem;
+}
+
+.purchase-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #f4d03f, #ffed4e);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.purchase-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #1a1a1a;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-left: 10px;
+}
+
+.spinner.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .ticket-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .pricing-section {
+        position: static;
+    }
+    
+    .purchase-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .purchase-title {
+        font-size: 2.5rem;
+    }
+    
+    .ticket-details,
+    .price-card {
+        padding: 2rem;
+    }
+    
+    .amount {
+        font-size: 3rem;
+    }
+    
+    .ticket-title {
+        font-size: 1.8rem;
+    }
+    
+    .purchase-button {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .purchase-title {
+        font-size: 2rem;
+    }
+    
+    .ticket-details,
+    .price-card {
+        padding: 1.5rem;
+    }
+    
+    .amount {
+        font-size: 2.5rem;
+    }
+    
+    .ticket-description p {
+        font-size: 1rem;
+    }
+}
+

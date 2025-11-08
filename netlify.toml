@@ -2,6 +2,7 @@
   # Since this is a static site, we don't need a build command
   # Netlify will serve files directly from the publish directory
   publish = "netlify components"
+  functions = "netlify/functions"
 
 # Redirect rules (optional - for single-page app behavior)
 # [[redirects]]
